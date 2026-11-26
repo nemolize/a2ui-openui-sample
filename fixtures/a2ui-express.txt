@@ -1,0 +1,14 @@
+<a2ui>
+$/payment = ["card"]
+title = Text("Confirm your order")
+l1 = Text("Espresso beans 500g x 2 - 1800 JPY each")
+l2 = Text("Paper filters (100) x 1 - 650 JPY each")
+l3 = Text("Ceramic dripper x 1 - 3200 JPY each")
+total = Text("Total: 7450 JPY")
+address = TextField("Delivery address", "1-2-3 Midori, Chuo-ku, Tokyo")
+date = DateTimeInput("2026-12-05", true, false, null, null, "Delivery date")
+pay = ChoicePicker("Payment method", "mutuallyExclusive", [{label: "Credit card", value: "card"}, {label: "Bank transfer", value: "bank"}, {label: "Cash on delivery", value: "cod"}], $/payment)
+confirm = Button(Text("Confirm order"), "primary", Event("confirm"))
+chart = BarChart("Monthly order totals", ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"], [4200, 6100, 3900, 8200, 5600, 7450])
+root = Column([title, Card(Column([l1, l2, l3])), total, address, date, pay, confirm, chart])
+</a2ui>
